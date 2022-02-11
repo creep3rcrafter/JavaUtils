@@ -628,23 +628,21 @@ public class BetterMath {
     public static double probablity(int numOfFavorableOutcomes, Object... sample){
         return (double) sample.length/numOfFavorableOutcomes;
     }
-    //quadratic x = Ã¢Ë†â€™b Ã‚Â± Ã¢Ë†Å¡bÃ‚Â²-4ac/2a
-    //vector2 distance d=Ã¢Ë†Å¡(xÃ¢â€šï¿½ Ã¢â‚¬â€œ xÃ¢â€šâ€š)Ã‚Â² + (yÃ¢â€šï¿½ Ã¢â‚¬â€œ yÃ¢â€šâ€š)Ã‚Â²
     public double vector2Distance (Vector2 v1, Vector2 v2){
         return Math.sqrt(Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2));
 
     }
-    //Slope yÃ¢â€šâ€š Ã¢â‚¬â€œ yÃ¢â€šï¿½ / xÃ¢â€šâ€š Ã¢â‚¬â€œ xÃ¢â€šï¿½
+    //Slope
 
     //slope intercept y=mx+b.
-    //vector2 midpoint (xÃ¢â€šï¿½+xÃ¢â€šâ€š) / 2, (yÃ¢â€šï¿½+yÃ¢â€šâ€š) / 2        takes 2 vector 2 points and outputs a vector 2 point
-    //triangle area a = 1/2 (5)(8) (base)(Hight)
+    //vector2 midpoint
+    //triangle area a = 1/2 (5)(8) (base)(Height)
     //Pythagorean Theorem: aÃ‚Â²+bÃ‚Â²=cÃ‚Â²
     //Area of Rectangle: area = length x width
     //Area of Circle: Ã�â‚¬ * rÃ‚Â²
-    //The perimeter of Square = P = 4a Where Ã¢â‚¬ËœaÃ¢â‚¬â„¢ is the length of the sides of square
-    //Perimeter of Rectangle = P = 2(l + b) Where Ã¢â‚¬ËœlÃ¢â‚¬â„¢ is Length and Ã¢â‚¬ËœbÃ¢â‚¬â„¢ is Breadth
-    //The area of Square = A = a2 Where Ã¢â‚¬ËœaÃ¢â‚¬â„¢ is the length of the sides of a Square
+    //The perimeter of Square
+    //Perimeter of Rectangle = P = 2(l + b)
+    //The area of Square
 
     public static class Vector2{
         double x = 0;
