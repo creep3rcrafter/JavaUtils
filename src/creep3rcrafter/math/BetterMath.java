@@ -22,7 +22,7 @@ public class BetterMath {
         X,Y
     }
     public enum Unit {
-        DEGREES, RADIANS, MAGNATUDE, MAGNATUDE_X, MAGNATUDE_Y
+        DEGREES, RADIANS, MAGNITUDE, MAGNITUDE_X, MAGNITUDE_Y
     }
     public enum Directions{
         NORTH(0,1, 0),
@@ -131,14 +131,36 @@ public class BetterMath {
     public static double radToDeg (double radians){ return radians * 180 / Math.PI; }
 
 
-    /**Converts Radians to Degrees
-     * @para
+    /**Lerps between a and b Using t
+     * @param a
+     * @param b
+     * @param t 0.0f to 1.0f
      * **/
     public static float lerp(float a, float b, float t){ return a + (b - a) * t; }
+    /**Lerps between a and b Using t
+     * @param a
+     * @param b
+     * @param t 0.0f to 1.0f
+     * **/
     public static double lerp(double a, double b, double t){ return a + (b - a) * t; }
+    /**Lerps between a and b Using t
+     * @param a
+     * @param b
+     * @param t 0.0f to 1.0f
+     * **/
     public static int lerp(int a, int b, int t){ return a + (b - a) * t; }
+    /**Lerps between a and b Using t
+     * @param a
+     * @param b
+     * @param t 0.0f to 1.0f
+     * **/
     public static long lerp(long a, long b, long t){ return a + (b - a) * t; }
 
+    /**Gets the X or Y magnitude of angle
+     * @param input either degrees or radians based on unit
+     * @param axis x or y
+     * @param unit = MAGNITUDE_X or MAGNITUDE_Y
+     * **/
     public static float getXorYMagnitudeOfAngle(float input, Axis axis, Unit unit){
         if (unit == Unit.RADIANS){
             if(axis == Axis.X){
@@ -160,6 +182,11 @@ public class BetterMath {
             return 0f;
         }
     }
+    /**Gets the X or Y magnitude of angle
+     * @param input either degrees or radians based on unit
+     * @param axis x or y
+     * @param unit = MAGNITUDE_X or MAGNITUDE_Y
+     * **/
     public static double getXorYMagnitudeOfAngle(double input, Axis axis, Unit unit){
         if (unit == Unit.RADIANS){
             if(axis == Axis.X){
@@ -182,18 +209,34 @@ public class BetterMath {
         }
     }
 
+    /**Generates a random number between your minimum and maximum
+     * @param min
+     * @param max
+     * **/
     public static float randRange(float min, float max) {
         Random rand = new Random();
         return rand.nextFloat() * (max - min) + min;
     }
+    /**Generates a random number between your minimum and maximum
+     * @param min
+     * @param max
+     * **/
     public static double randRange(double min, double max) {
         Random rand = new Random();
         return rand.nextDouble() * (max - min) + min;
     }
+    /**Generates a random number between your minimum and maximum
+     * @param min
+     * @param max
+     * **/
     public static int randRange(int min, int max) {
         Random rand = new Random();
         return rand.nextInt() * (max - min) + min;
     }
+    /**Generates a random number between your minimum and maximum
+     * @param min
+     * @param max
+     * **/
     public static long randRange(long min, long max) {
         Random rand = new Random();
         return rand.nextLong() * (max - min) + min;
@@ -566,9 +609,9 @@ public class BetterMath {
                 switch (inputUnit){
                     case DEGREES:
                         return degToRad(input);
-                    case MAGNATUDE_X:
+                    case MAGNITUDE_X:
                         return Math.asin(input);
-                    case MAGNATUDE_Y:
+                    case MAGNITUDE_Y:
                         return Math.acos(input);
                     case RADIANS:
                         return input;
@@ -577,21 +620,21 @@ public class BetterMath {
                 switch (inputUnit){
                     case DEGREES:
                         return input;
-                    case MAGNATUDE_X:
+                    case MAGNITUDE_X:
                         return radToDeg(Math.asin(input));
-                    case MAGNATUDE_Y:
+                    case MAGNITUDE_Y:
                         return radToDeg(Math.acos(input));
                     case RADIANS:
                         return radToDeg(input);
                 }
-            case MAGNATUDE_X:
+            case MAGNITUDE_X:
                 switch (inputUnit) {
                     case DEGREES:
                         return radToDeg(Math.asin(input));
                     case RADIANS:
                         return Math.asin(input);
                 }
-            case MAGNATUDE_Y:
+            case MAGNITUDE_Y:
                 switch (inputUnit){
                     case DEGREES:
                         return radToDeg(Math.acos(input));
@@ -606,7 +649,7 @@ public class BetterMath {
         double xAngle = Math.asin(input.x);
         double yAngle = Math.acos(input.y);
         switch (inputUnit){
-            case MAGNATUDE:
+            case MAGNITUDE:
                 switch (outPutUnit){
                     case RADIANS:
                         if (xAngle == yAngle){
@@ -620,11 +663,11 @@ public class BetterMath {
                         }else{
                             return 0.0;
                         }
-                    case MAGNATUDE_X:
+                    case MAGNITUDE_X:
                         return input.x;
-                    case MAGNATUDE_Y:
+                    case MAGNITUDE_Y:
                         return input.y;
-                    case MAGNATUDE:
+                    case MAGNITUDE:
                     default:
                         return 0.0;
                 }
