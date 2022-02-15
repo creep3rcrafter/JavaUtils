@@ -104,20 +104,36 @@ public class BetterMath {
     }
 
     /**Converts Radius to Circumfrence
-     * @param radius Enter a (float) of the radius you need to calculate
+     * @param radius
      * **/
     public static float radiusToCircumference (float radius){ return (float) (2 * Math.PI * radius); }
     /**Converts Radius to Circumfrence
-     * @param radius Enter a (double) of the radius you need to calculate
+     * @param radius
      * **/
     public static double radiusToCircumference (double radius){ return 2 * Math.PI * radius; }
-
+    
+    /**Converts Degrees to Radians
+     * @param degrees
+     * **/
     public static float degToRad (float degrees){ return (float) ((degrees / 180) * Math.PI); }
+    /**Converts Degrees to Radians
+     * @param degrees
+     * **/
     public static double degToRad (double degrees){ return (degrees / 180) * Math.PI; }
 
-    public static float radToDeg (float Rad){ return (float) (Rad * 180 / Math.PI); }
-    public static double radToDeg (double Rad){ return Rad * 180 / Math.PI; }
+    /**Converts Radians to Degrees
+     * @param Radians
+     * **/
+    public static float radToDeg (float radians){ return (float) (radians * 180 / Math.PI); }
+    /**Converts Radians to Degrees
+     * @param Radians
+     * **/
+    public static double radToDeg (double radians){ return radians * 180 / Math.PI; }
 
+
+    /**Converts Radians to Degrees
+     * @para
+     * **/
     public static float lerp(float a, float b, float t){ return a + (b - a) * t; }
     public static double lerp(double a, double b, double t){ return a + (b - a) * t; }
     public static int lerp(int a, int b, int t){ return a + (b - a) * t; }
@@ -637,9 +653,9 @@ public class BetterMath {
     //slope intercept y=mx+b.
     //vector2 midpoint
     //triangle area a = 1/2 (5)(8) (base)(Height)
-    //Pythagorean Theorem: aÃ‚Â²+bÃ‚Â²=cÃ‚Â²
+    //Pythagorean Theorem
     //Area of Rectangle: area = length x width
-    //Area of Circle: Ã�â‚¬ * rÃ‚Â²
+    //Area of Circle
     //The perimeter of Square
     //Perimeter of Rectangle = P = 2(l + b)
     //The area of Square
@@ -654,49 +670,6 @@ public class BetterMath {
         public Vector2(double x, double y){
             this.x = x;
             this.y = y;
-        }
-    }
-    public static class Fraction{
-        private int numerator;
-        private int denominator;
-        public Fraction() {
-            numerator = 0;
-            denominator = 1;
-        }
-        public Fraction(int num) {
-            numerator = num;
-            denominator = 1;
-        }
-        public Fraction(int num, int denom) {
-            numerator = (denom < 0 ? -num : num);
-            if (denom == 0) {
-                denominator = 1;
-            }
-            denominator = (denom < 0 ? -denom : denom);
-            reduce();
-        }
-        private void reduce() {
-            int n = numerator, d = denominator, largest;
-            if (numerator < 0) {
-                n = -numerator;
-            }
-            if (n > d) {
-                largest = n;
-            }
-            else {
-                largest = d;
-            }
-            int gcd = 0;
-            for (int i = largest; i >= 2; i--) {
-                if (numerator % i == 0 && denominator % i == 0) {
-                    gcd = i;
-                    break;
-                }
-            }
-            if (gcd != 0) {
-                numerator /= gcd;
-                denominator /= gcd;
-            }
         }
     }
 }
