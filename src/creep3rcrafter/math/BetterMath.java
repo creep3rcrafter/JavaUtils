@@ -54,7 +54,7 @@ public class BetterMath {
         return Math.max(min, Math.min(max, val));
     }
 
-    /**Gets the distance between 2 numbers
+    /**Gets the distance between 2 or more numbers
      * if more than 2 paramaters are added
      * it adds the total of all of them.
      * @param var Enter 2 or more floats if only one is entered it will return the abs of var
@@ -66,7 +66,7 @@ public class BetterMath {
         }
         return total;
     }
-    /**Gets the distance between 2 numbers
+    /**Gets the distance between 2 or more numbers
      * if more than 2 paramaters are added
      * it adds the total of all of them.
      * @param var Enter 2 or more doubles if only one is entered it will return the abs of var
@@ -78,7 +78,7 @@ public class BetterMath {
         }
         return total;
     }
-    /**Gets the distance between 2 numbers
+    /**Gets the distance between 2 or more numbers
      * if more than 2 paramaters are added
      * it adds the total of all of them.
      * @param var Enter 2 or more ints if only one is entered it will return the abs of var
@@ -90,7 +90,7 @@ public class BetterMath {
         }
         return total;
     }
-    /**Gets the distance between 2 numbers
+    /**Gets the distance between 2 or more numbers
      * if more than 2 paramaters are added
      * it adds the total of all of them.
      * @param var Enter 2 or more longs if only one is entered it will return the abs of var
@@ -590,16 +590,16 @@ public class BetterMath {
         return (min(var)+max(var)/2);
     }
     //rectangleVolume
-    public static float rectangleVolume(float length, float width, float height){
+    public static float cuboidVolume(float length, float width, float height){
         return multiply(length, width, height);
     }
-    public static double rectangleVolume(double length, double width, double height){
+    public static double cuboidVolume(double length, double width, double height){
         return multiply(length, width, height);
     }
-    public static int rectangleVolume(int length, int width, int height){
+    public static int cuboidVolume(int length, int width, int height){
         return multiply(length, width, height);
     }
-    public static long rectangleVolume(long length, long width, long height){
+    public static long cuboidVolume(long length, long width, long height){
         return multiply(length, width, height);
     }
 
@@ -645,51 +645,15 @@ public class BetterMath {
                 return 0.0;
         }
     }
-    public static double unitCircle(Unit inputUnit, Unit outPutUnit, Vector2 input){
-        double xAngle = Math.asin(input.x);
-        double yAngle = Math.acos(input.y);
-        switch (inputUnit){
-            case MAGNITUDE:
-                switch (outPutUnit){
-                    case RADIANS:
-                        if (xAngle == yAngle){
-                            return xAngle;
-                        }else{
-                            return 0.0;
-                        }
-                    case DEGREES:
-                        if (xAngle == yAngle){
-                            return radToDeg(xAngle);
-                        }else{
-                            return 0.0;
-                        }
-                    case MAGNITUDE_X:
-                        return input.x;
-                    case MAGNITUDE_Y:
-                        return input.y;
-                    case MAGNITUDE:
-                    default:
-                        return 0.0;
-                }
-            default:
-                return 0.0;
-        }
-    }
-
 
     public static double closest (double var, double... input){
         return 0;
     }
     public static double farthest (double var, double... input){
-        return 0;
+    	return 0;
     }
-    //probablity - target outcomes/totaloutcomes
     public static double probablity(int numOfFavorableOutcomes, Object... sample){
         return (double) sample.length/numOfFavorableOutcomes;
-    }
-    public double vector2Distance (Vector2 v1, Vector2 v2){
-        return Math.sqrt(Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2));
-
     }
     //Slope
 
@@ -702,18 +666,5 @@ public class BetterMath {
     //The perimeter of Square
     //Perimeter of Rectangle = P = 2(l + b)
     //The area of Square
-
-    public static class Vector2{
-        double x = 0;
-        double y = 0;
-        public Vector2(){
-            this.x = 0;
-            this.y = 0;
-        }
-        public Vector2(double x, double y){
-            this.x = x;
-            this.y = y;
-        }
-    }
 }
 
