@@ -19,11 +19,11 @@ public class BetterMath {
 	}
 
 	public enum Axis {
-		X, Y
+		X, Y, Z
 	}
 
 	public enum Unit {
-		DEGREES, RADIANS, MAGNITUDE, MAGNITUDE_X, MAGNITUDE_Y
+		DEGREES, RADIANS, MAGNITUDE_X, MAGNITUDE_Y
 	}
 
 	public enum Directions {
