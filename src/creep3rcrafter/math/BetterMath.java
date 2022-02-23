@@ -1,5 +1,8 @@
 package creep3rcrafter.math;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.util.Arrays;
 import java.util.Random;
 
 public class BetterMath {
@@ -296,7 +299,7 @@ public class BetterMath {
 	 **/
 	public static int randRange(int min, int max) {
 		Random rand = new Random();
-		return rand.nextInt() * (max - min) + min;
+		return rand.nextInt(max - min) + min;
 	}
 
 	/**
@@ -477,7 +480,7 @@ public class BetterMath {
 	}
 
 	public static double multiply(double... var) {
-		double total = 0;
+		double total = var[0];
 		for (int i = 1; i < var.length; i++) {
 			total = total * var[i];
 		}
@@ -485,7 +488,7 @@ public class BetterMath {
 	}
 
 	public static int multiply(int... var) {
-		int total = 0;
+		int total = var[0];
 		for (int i = 1; i < var.length; i++) {
 			total = total * var[i];
 		}
@@ -493,7 +496,7 @@ public class BetterMath {
 	}
 
 	public static long multiply(long... var) {
-		long total = 0;
+		long total = var[0];
 		for (int i = 1; i < var.length; i++) {
 			total = total * var[i];
 		}
@@ -510,7 +513,7 @@ public class BetterMath {
 	}
 
 	public static double divide(double... var) {
-		double total = 0;
+		double total = var[0];
 		for (int i = 1; i < var.length; i++) {
 			total = total / var[i];
 		}
@@ -518,7 +521,7 @@ public class BetterMath {
 	}
 
 	public static int divide(int... var) {
-		int total = 0;
+		int total = var[0];
 		for (int i = 1; i < var.length; i++) {
 			total = total / var[i];
 		}
@@ -526,7 +529,7 @@ public class BetterMath {
 	}
 
 	public static long divide(long... var) {
-		long total = 0;
+		long total = var[0];
 		for (int i = 1; i < var.length; i++) {
 			total = total / var[i];
 		}
@@ -750,11 +753,143 @@ public class BetterMath {
 		}
 	}
 
-	public static double closest(double var, double... input) {
-		return 0;
+	public static double findClosest(double target, double... input) {
+		int closestPos = 0;
+		double lastClosest = 0;
+		double lastMax = input[0];
+		for (double Var : input) {
+			lastMax = Math.max(lastMax, Math.abs(Var));
+		}
+		lastClosest = lastMax;
+		for (int j = 0; j < input.length; j++) {
+			if (input[j] == target) {
+				return input[j];
+			}
+			if (Math.abs(betterSubtract(target, input[j])) < lastClosest) {
+				lastClosest = Math.abs(betterSubtract(target, input[j]));
+				closestPos = j;
+			}
+		}
+		return input[closestPos];
 	}
 
-	public static double farthest(double var, double... input) {
+	public static float findClosest(double target, float... input) {
+		int closestPos = 0;
+		double lastClosest = 0;
+		double lastMax = input[0];
+		for (double Var : input) {
+			lastMax = Math.max(lastMax, Math.abs(Var));
+		}
+		lastClosest = lastMax;
+		for (int j = 0; j < input.length; j++) {
+			if (input[j] == target) {
+				return input[j];
+			}
+			if (Math.abs(betterSubtract(target, input[j])) < lastClosest) {
+				lastClosest = Math.abs(betterSubtract(target, input[j]));
+				closestPos = j;
+			}
+		}
+		return input[closestPos];
+	}
+
+	public static int findClosest(double target, int... input) {
+		int closestPos = 0;
+		double lastClosest = 0;
+		double lastMax = input[0];
+		for (double Var : input) {
+			lastMax = Math.max(lastMax, Math.abs(Var));
+		}
+		lastClosest = lastMax;
+		for (int j = 0; j < input.length; j++) {
+			if (input[j] == target) {
+				return input[j];
+			}
+			if (Math.abs(betterSubtract(target, input[j])) < lastClosest) {
+				lastClosest = Math.abs(betterSubtract(target, input[j]));
+				closestPos = j;
+			}
+		}
+		return input[closestPos];
+	}
+
+	public static long findClosest(double target, long... input) {
+		int closestPos = 0;
+		double lastClosest = 0;
+		double lastMax = input[0];
+		for (double Var : input) {
+			lastMax = Math.max(lastMax, Math.abs(Var));
+		}
+		lastClosest = lastMax;
+		for (int j = 0; j < input.length; j++) {
+			if (input[j] == target) {
+				return input[j];
+			}
+			if (Math.abs(betterSubtract(target, input[j])) < lastClosest) {
+				lastClosest = Math.abs(betterSubtract(target, input[j]));
+				closestPos = j;
+			}
+		}
+		return input[closestPos];
+	}
+
+	public static double betterSubtract(double a, double b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.subtract(d);
+		return c.doubleValue();
+	}
+
+	public static float betterSubtract(float a, float b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.subtract(d);
+		return c.floatValue();
+	}
+
+	public static int betterSubtract(int a, int b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.subtract(d);
+		return c.intValue();
+	}
+
+	public static long betterSubtract(long a, long b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.subtract(d);
+		return c.longValue();
+	}
+
+	public static double betterAdd(double a, double b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.add(d);
+		return c.doubleValue();
+	}
+
+	public static float betterAdd(float a, float b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.add(d);
+		return c.floatValue();
+	}
+
+	public static int betterAdd(int a, int b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.add(d);
+		return c.intValue();
+	}
+
+	public static long betterAdd(long a, long b) {
+		BigDecimal c = new BigDecimal(a, MathContext.DECIMAL64);
+		BigDecimal d = new BigDecimal(b, MathContext.DECIMAL64);
+		c = c.add(d);
+		return c.longValue();
+	}
+
+	public static double farthest(double target, double... input) {
 		return 0;
 	}
 
@@ -765,17 +900,19 @@ public class BetterMath {
 	public static float celsiusToFahrenheit(float c) {
 		return 1.8f * c + 32f;
 	}
+
 	public static double celsiusToFahrenheit(double c) {
 		return 1.8 * c + 32.0;
 	}
-	
+
 	public static float fahrenheitToCelsius(float f) {
 		return (f - 32f) / 1.8f;
 	}
+
 	public static double fahrenheitToCelsius(double f) {
 		return (f - 32.0) / 1.8;
 	}
-	
+
 	// Slope
 
 	// slope intercept y=mx+b.
