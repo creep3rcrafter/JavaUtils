@@ -777,7 +777,7 @@ public class BetterMath {
 		int closestPos = 0;
 		double lastClosest = 0;
 		double lastMax = input[0];
-		for (double Var : input) {
+		for (float Var : input) {
 			lastMax = Math.max(lastMax, Math.abs(Var));
 		}
 		lastClosest = lastMax;
@@ -797,7 +797,7 @@ public class BetterMath {
 		int closestPos = 0;
 		double lastClosest = 0;
 		double lastMax = input[0];
-		for (double Var : input) {
+		for (int Var : input) {
 			lastMax = Math.max(lastMax, Math.abs(Var));
 		}
 		lastClosest = lastMax;
@@ -817,7 +817,7 @@ public class BetterMath {
 		int closestPos = 0;
 		double lastClosest = 0;
 		double lastMax = input[0];
-		for (double Var : input) {
+		for (long Var : input) {
 			lastMax = Math.max(lastMax, Math.abs(Var));
 		}
 		lastClosest = lastMax;
@@ -913,15 +913,33 @@ public class BetterMath {
 		return (f - 32.0) / 1.8;
 	}
 
-	// Slope
+	public static int greatestCommonFactor(int a, int b) {
+		if (b >= a) {
+			int r = b % a;
+			if (r == 0) {
+				return a;
+			} else {
+				return greatestCommonFactor(r, a);
+			}
+		} else {
+			int r = a % b;
+			if (r == 0) {
+				return b;
+			} else {
+				return greatestCommonFactor(r, b);
+			}
+		}
+	}
 
-	// slope intercept y=mx+b.
-	// vector2 midpoint
-	// triangle area a = 1/2 (5)(8) (base)(Height)
-	// Pythagorean Theorem
-	// Area of Rectangle: area = length x width
-	// Area of Circle
-	// The perimeter of Square
-	// Perimeter of Rectangle = P = 2(l + b)
-	// The area of Square
+// Slope
+
+// slope intercept y=mx+b.
+// vector2 midpoint
+// triangle area a = 1/2 (5)(8) (base)(Height)
+// Pythagorean Theorem
+// Area of Rectangle: area = length x width
+// Area of Circle
+// The perimeter of Square
+// Perimeter of Rectangle = P = 2(l + b)
+// The area of Square
 }
