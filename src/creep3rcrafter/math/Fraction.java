@@ -105,7 +105,7 @@ public class Fraction {
 		}
 	}
 
-	public double getDecimal() {
+	public double getcDecimal() {
 		return (double) this.numerator / (double) this.denominator;
 	}
 
@@ -114,7 +114,14 @@ public class Fraction {
 	}
 
 	public void setFraction(double decimal) {
-		
+		int length = (int) String.valueOf(decimal).split("\\.")[1].length();
+		int decimalInt = (int) Math.pow(10, length);
+		int gcf = BetterMath.greatestCommonFactor(decimalToInt, 100);
+		int n = decimalToInt;
+		int d = (int) Math.pow(10, length);
+		this.numerator = n;
+		this.denominator = d;
+		simplify();
 	}
 
 	public void setFraction(int numerator, int denominator) {
