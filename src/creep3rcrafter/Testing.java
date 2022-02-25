@@ -9,11 +9,13 @@ public class Testing {
 		double[] nums = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0 };
 		double num = 1234.123456789;
 		System.out.println("Closest double: " + BetterMath.findClosest(4.5, nums));
-		System.out.println("Floating point subtract: " + (5.2 - 5) + "\nBetterSubtract: " + BetterMath.betterSubtract(5.2, 5));
+		System.out.println(
+				"Floating point subtract: " + (5.2 - 5) + "\nBetterSubtract: " + BetterMath.betterSubtract(5.2, 5));
 		for (int i = 1; i < 9; i++) {
 			System.out.println("RoundToDecPlace: " + BetterMath.roundToDecPlace(num, i));
 		}
-		System.out.println("UnitCircle Angle to Rad: " + BetterMath.unitCircle(BetterMath.Unit.DEGREES, BetterMath.Unit.RADIANS, 60));
+		System.out.println("UnitCircle Angle to Rad: "
+				+ BetterMath.unitCircle(BetterMath.Unit.DEGREES, BetterMath.Unit.RADIANS, 60));
 		System.out.println("Map: " + BetterMath.map(567, 0, 1000, 27, 4324));
 		System.out.println("Min: " + BetterMath.min(nums));
 		System.out.println("Max: " + BetterMath.max(nums));
@@ -29,10 +31,10 @@ public class Testing {
 		System.out.println("Random Range: " + BetterMath.randRange(0, 1000));
 		System.out.println("Greatest Common Factor: " + BetterMath.greatestCommonFactor(256, 32));
 		System.out.println("Greatest Common Factor: " + BetterMath.greatestCommonFactor(63, 257));
-		System.out.println("Greatest Common Factor: " + BetterMath.greatestCommonFactor(63*2, 257*2));
+		System.out.println("Greatest Common Factor: " + BetterMath.greatestCommonFactor(63 * 2, 257 * 2));
 		System.out.println("Greatest Common Factor: " + BetterMath.greatestCommonFactor(3, 11));
 		System.out.println("Greatest Common Factor: " + BetterMath.greatestCommonFactor(6, 27));
-		
+
 		Fraction fraction1 = new Fraction(32, 256);
 		Fraction fraction2 = new Fraction(134, 322);
 		Fraction fraction3 = new Fraction(326, 414);
@@ -41,14 +43,20 @@ public class Testing {
 		System.out.println(fraction1.getPercent());
 		fraction1.simplify();
 		System.out.println(fraction1.toString());
-
 		System.out.println(fraction2.toString());
-
-		System.out.println(fraction2.getDecimal());
-		System.out.println(fraction3.getDecimal());
 		fraction2.add(fraction3);
 		System.out.println(fraction2.toString());
-		System.out.println(fraction2.getDecimal());
+		fraction1.setFraction(0.956);
+		System.out.println(fraction1.toString());
+		Fraction fractionDecimal = new Fraction(0.125);
+		System.out.println(fractionDecimal.toString());
+
+		Fraction fraction4 = new Fraction(2, 6);
+		Fraction fraction5 = new Fraction(1, 3);
+		Fraction fraction6 = new Fraction(1, 2);
+
+		System.out.println(fraction4.isEquivalent(fraction5));
+		System.out.println(Fraction.isEquivalent(fraction5, fraction6));
 	}
 
 }
